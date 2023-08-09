@@ -1,0 +1,302 @@
+@import url(https://fonts.googleapis.com/css2?family=Montserrat:wght@500&family=Poppins&display=swap);
+
+body {
+	font-family: Poppins;
+	background: black;
+	text-align: center;
+	overflow-x: hidden;
+
+	--accent: orange; /*#8dfe48;*/
+}
+* {
+	border: none;
+	outline: none;
+}
+.centered {
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+#svg-container {
+	width: 100vw;
+	height: 40vw;
+}
+#secs {
+	transform: translate(0, 70%);
+}
+/* DESCRIPTION*/
+#description {
+	position: relative;
+	left: 50%;
+	width: 90vw;
+	transform: translate(-50%, 0);
+	font-size: clamp(12px, 2vw, 50px);
+	text-align: center;
+	color: white;
+	line-height: 1.5;
+	letter-spacing: 1;
+	text-transform: capitalize;
+	background-color: rgba(255, 255, 255, 0.05);
+	border-radius: 2vw;
+	border: 2px solid rgba(255, 255, 255, 0.05);
+	margin-bottom: 5vw;
+}
+
+#description-content {
+	padding-bottom: min(5vh, 50px);
+	margin: 40px;
+}
+
+.description-hidden {
+	display: none;
+}
+
+#description-header {
+	position: relative;
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	margin: auto;
+}
+
+#description-header i {
+	position: absolute;
+	top: 0;
+	right: 0;
+	margin: 1vw;
+	width: 3vw;
+}
+
+#header-title {
+	cursor: pointer;
+	margin-left: 46vw;
+	/*text-decoration: underline;*/
+	transform: translateX(-50%);
+	text-anchor: center;
+}
+
+/* DOTS-animation*/
+@keyframes over-the-rainbow {
+	0% {
+		transform: translate(50%, 90%) rotate(0deg);
+	}
+	50% {
+		transform: translate(50%, 90%) rotate(180deg);
+	}
+	100% {
+		transform: translate(50%, 90%) rotate(0deg);
+	}
+}
+
+/* The animated dots*/
+.dot {
+	r: 8;
+	fill: white;
+	transform: translate(50%, 90%);
+	animation-name: over-the-rainbow;
+	animation-iteration-count: infinite;
+	animation-timing-function: linear;
+	animation-play-state: auto;
+}
+
+#stop-play {
+	position: relative;
+	transform: translateY(-11vw);
+	height: 5vw;
+	width: 5vw;
+	background-color: transparent;
+	background-image: url("https://assets.codepen.io/4970299/play_pause.svg");
+	background-repeat: no-repeat;
+	border-radius: 0;
+
+	display: none;
+}
+
+/* Input-button-panel */
+#panel {
+	position: relative;
+	left: 50%;
+	transform: translate(-50%, 0);
+	color: white;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-between;
+	width: max(30vw, 300px);
+	padding: 4vw;
+	height: fit-content;
+	background-color: rgba(255, 255, 255, 0.05);
+	border-radius: max(50px, 2vw);
+	border: 2px solid rgba(255, 255, 255, 0.05);
+	font-size: clamp(12px, 1.5vw, 50px);
+}
+
+/* num-inputs-container */
+#input-group {
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	margin: 2vw 0;
+	height: 3vw;
+	/* background-color: red;  */
+}
+
+.var-input {
+	/*width:50%;*/
+	/* background-color: white; */
+	flex-direction: row;
+	justify-content: space-between;
+	margin: 0;
+
+	display: flex;
+	align-items: center;
+	width: 100%;
+	/* background-color: white; */
+	margin: 0;
+}
+
+/* Hide the default spinners */
+.var-input input::-webkit-inner-spin-button,
+.var-input input::-webkit-outer-spin-button {
+	-webkit-appearance: none;
+	margin: 0;
+}
+
+.var-input input[type="number"] {
+	padding-right: 0px;
+}
+
+.var-input input {
+	width: 100%;
+	height: 100%;
+	left: -25%;
+	font-size: clamp(12px, 1.5vw, 50px);
+	background-color: rgba(255, 255, 255, 0.05);
+	/* background-color: rgb(245, 129, 230); */
+	border-radius: 5% 0 0 5%;
+	padding-left: 10px;
+	margin: 0;
+	color: white;
+	flex: 1;
+	margin: 0;
+	left: unset;
+}
+
+input :hover {
+	transform: scale(0.9);
+}
+
+.arrows-wrapper {
+	background-color: black;
+
+	height: 100%;
+	width: 20%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+.arrow {
+	right: 0;
+	height: 50%;
+	width: fit-content;
+	margin: 0;
+	font-size: 1vw;
+	line-height: 0;
+	/* transform:translate(-2vw,-4px); */
+	border-radius: 0;
+	pointer-events: all;
+	background-color: var(--accent);
+}
+.arrow:hover {
+	background-color: grey;
+}
+
+/* variables and expression */
+#calc-input-content input {
+	width: max(90%, 300px);
+	height: auto;
+	background-color: rgba(255, 255, 255, 0.05);
+	margin: 1vw;
+	color: white;
+	padding: 6px;
+	font-size: clamp(12px, 1.5vw, 50px);
+}
+
+#buttons {
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+}
+
+button {
+	width: max(43%, 100px);
+	background-color: var(--accent);
+	height: 10%;
+	margin-top: 2vw;
+	border-radius: 1vw;
+	font-size: clamp(12px, 1.5vw, 50px);
+	padding: 5px;
+	margin: 2vw;
+	cursor: pointer;
+}
+
+#buttons #sendButton:hover {
+	transform: scale(1.1);
+	text-decoration: underline;
+}
+
+.modal {
+	display: none;
+	position: fixed;
+	z-index: 1;
+	top: 40vw;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+	background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	background-color: rgba(167, 167, 167, 0.4);
+	margin: 20% auto;
+	padding: 20px;
+	border: 1px solid rgba(255, 255, 255, 0.05);
+	width: 300px;
+	border-radius: 10px;
+}
+.modal-content input {
+	padding: 2vw;
+	font-size: clamp(12px, 1.5vw, 50px);
+}
+.modal-content button {
+	margin-top: 2vw;
+}
+
+.close {
+	color: #aaaaaa;
+	right: float;
+	font-size: 28px;
+	font-weight: bold;
+	cursor: pointer;
+}
+.modal-content input {
+	background-color: black;
+	margin-top: 2vw;
+	color: white;
+	padding: 6px;
+}
+
+.close:hover,
+.close:focus {
+	color: #000000;
+	text-decoration: none;
+	cursor: pointer;
+}
+.hidden {
+	display: none !important;
+}
